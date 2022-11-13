@@ -35,41 +35,45 @@ else #javac is not working
 fi 
 
 java -cp $CP org.junit.runner.JUnitCore TestListExamples > testanswers.txt 
-grep "mergeTest1*" testanswers.txt 
 
 # grep for all the tests --- then find how many failed to find the score 
 # start from full score + deduct by 1 for every failed test 
 
-echo 5
-let a=5 
-if [[ $Comp == "mergeTest1" ]]
-then
-    let a-1
-    echo a
-fi 
 
-if [[ grep "mergeTest2" testanswers.txt ]]
-then
-    let a-1
-    echo a
-fi 
+declare -i a=5
 
-if [[ grep "mergeTest3" testanswers.txt ]]
-then
-    let a-1
-    echo a
-fi 
+output1=$(grep "mergeTest(*" testanswers.txt)
+if [[ ! -z "$output1" ]] 
+then 
+    let "a=a-1"
+    echo 1
+fi
 
-if [[ grep "filterTest1" testanswers.txt ]]
-then
-    let a-1
-    echo a
-fi 
+output2=$(grep "mergeTestLong*" testanswers.txt)
+if [[ ! -z "$output2" ]] 
+then 
+    let "a=a-1"
+    echo 2
+fi
 
-if [[ grep "filterTest2" testanswers.txt ]]
-then
-    let a-1
-    echo a
+output3=$(grep "mergeTestEmpty*" testanswers.txt)
+if [[ ! -z "$output3" ]] 
+then 
+    let "a=a-1"
+    echo 3
+fi
+
+output4=$(grep "filterTest(*" testanswers.txt)
+if [[ ! -z "$output4" ]] 
+then 
+    let "a=a-1"
+    echo 4
+fi
+
+output5=$(grep "filterTestAgain*" testanswers.txt)
+if [[ ! -z "$output5" ]] 
+then 
+    let "a=a-1"
 fi
 
 echo "Score is: " $a " out of 5"

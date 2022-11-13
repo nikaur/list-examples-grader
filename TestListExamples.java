@@ -9,7 +9,7 @@ import java.util.List;
 public class TestListExamples {
     //generic test 
     @Test
-      public void mergeTest1(){
+      public void mergeTest(){
         List<String> s1 = Arrays.asList("apple", "boy"); 
         List<String> s2 = Arrays.asList("are", "zed");
         List<String> s3 = Arrays.asList("apple", "are", "boy", "zed");  
@@ -17,7 +17,7 @@ public class TestListExamples {
       }
 
     @Test 
-      public void mergeTest2(){
+      public void mergeTestLong(){
         List<String> s1 = Arrays.asList("a", "list", "long", "very"); 
         List<String> s2 = Arrays.asList("another", "list", "long"); 
         List<String> s3 = Arrays.asList("a", "another", "list", "list", "long", "long", "very"); 
@@ -25,7 +25,7 @@ public class TestListExamples {
       }
 
       @Test
-      public void mergeTest3(){
+      public void mergeTestEmpty(){
         List<String> s1 = new ArrayList<>();  
         List<String> s2 = new ArrayList<>();
         List<String> s3= new ArrayList<>(); 
@@ -33,7 +33,7 @@ public class TestListExamples {
       }
 
       @Test
-      public void filterTest1(){
+      public void filterTest(){
           List<String> input = Arrays.asList("hi", "hello", "k", "hm"); 
           //String a = "h";
           StringChecker sc = new StringChecker(){
@@ -45,7 +45,7 @@ public class TestListExamples {
         }
 
       @Test
-      public void filterTest2(){
+      public void filterTestAgain(){
         List<String> s1 = Arrays.asList("apple", "berry", "smth"); 
         List<String> s2 = new ArrayList<>(); 
         StringChecker sc = new StringChecker(){
