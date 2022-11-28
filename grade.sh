@@ -18,13 +18,24 @@ if [[ -f ListExamples.java ]]
 then 
     echo "File detected."
 else 
-    echo "Error: File not detected. Please submit the correct files"
+    echo "Error: File not detected. Please submit the correct files in the correct directory"
     exit 1 
 fi 
 
 
 #check if javac is working 
 javac -cp $CP *.java 
+
+#if after javac there is any error message, 
+    #that means that the methods were not written correctly 
+if ! [[ $? -eq 0 ]]
+then 
+    echo "method implementation error"
+    exit 1
+else 
+    echo "implemented methods correctly"
+fi
+
 
 if [[ -f ListExamples.class ]]
 then #it's working 
@@ -33,6 +44,7 @@ else #javac is not working
     echo "Compile error"
     exit 1 
 fi 
+
 
 java -cp $CP org.junit.runner.JUnitCore TestListExamples > testanswers.txt 
 

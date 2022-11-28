@@ -13,7 +13,7 @@ public class TestListExamples {
         List<String> s1 = Arrays.asList("apple", "boy"); 
         List<String> s2 = Arrays.asList("are", "zed");
         List<String> s3 = Arrays.asList("apple", "are", "boy", "zed");  
-        assertEquals(s1, ListExamples.merge(s1, s2));
+        assertEquals(s3, ListExamples.merge(s1, s2));
       }
 
     @Test 
